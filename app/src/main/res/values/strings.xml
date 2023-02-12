@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SearchQuery</string>
+    <string name="no_result_found">No Result found</string>
+    <string name="try_again">Please try again</string>
+</resources>
