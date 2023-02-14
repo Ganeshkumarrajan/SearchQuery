@@ -1,7 +1,7 @@
 package com.anonymous.searchquery.presentaiton
 
-import com.anonymous.searchquery.domain.search.usecase.SearchDomain
-import com.anonymous.searchquery.presentaiton.search.viewmodel.SearchResultMapperDomainToUI
+import com.anonymous.searchquery.domain.search.model.SearchDomain
+import com.anonymous.searchquery.presentaiton.search.mapper.SearchResultMapperDomainToUI
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

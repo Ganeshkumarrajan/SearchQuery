@@ -1,15 +1,15 @@
 package com.anonymous.searchquery.utils
 
-import com.anonymous.searchquery.data.base.NetworkResult
 import com.anonymous.searchquery.data.search.model.SearchNetwork
-import com.anonymous.searchquery.domain.search.usecase.SearchDomain
+import com.anonymous.searchquery.domain.search.model.SearchDomain
+import com.anonymous.searchquery.domain.utils.NetworkResult
 import com.anonymous.searchquery.presentaiton.search.model.SearchUI
 import com.skydoves.sandwich.ApiResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
-internal fun getFakeSearchResult(): kotlinx.coroutines.flow.Flow<NetworkResult<List<SearchDomain?>>> =
+internal fun getFakeSearchResult(): Flow<NetworkResult<List<SearchDomain?>>> =
     flow {
         emit(
             NetworkResult.Success(
@@ -18,7 +18,7 @@ internal fun getFakeSearchResult(): kotlinx.coroutines.flow.Flow<NetworkResult<L
         )
     }
 
-internal fun getFakeEmptySearchResult(): kotlinx.coroutines.flow.Flow<NetworkResult<List<SearchDomain?>>> =
+internal fun getFakeEmptySearchResult(): Flow<NetworkResult<List<SearchDomain?>>> =
     flow {
         emit(
             NetworkResult.Success(
@@ -28,7 +28,7 @@ internal fun getFakeEmptySearchResult(): kotlinx.coroutines.flow.Flow<NetworkRes
     }
 
 internal fun getFakeErrorSearchResult(): Flow<NetworkResult<List<SearchDomain?>>> = flow {
-    emit(NetworkResult.Error("10001"))
+    emit(NetworkResult.Error())
 }
 
 internal fun getFakeSearchDomain(): List<SearchDomain> =

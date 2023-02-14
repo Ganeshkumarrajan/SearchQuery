@@ -1,17 +1,18 @@
 package com.anonymous.searchquery.presentaiton
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.anonymous.searchquery.domain.search.model.SearchDomain
 import com.anonymous.searchquery.domain.search.usecase.DoSearchUseCase
-import com.anonymous.searchquery.domain.search.usecase.SearchDomain
+import com.anonymous.searchquery.presentaiton.search.events.UserEvent
+import com.anonymous.searchquery.presentaiton.search.mapper.DomainToUIMapper
 import com.anonymous.searchquery.presentaiton.search.model.SearchUI
-import com.anonymous.searchquery.presentaiton.search.viewmodel.DomainToUIMapper
 import com.anonymous.searchquery.presentaiton.search.viewmodel.SearchViewModel
-import com.anonymous.searchquery.presentaiton.search.viewmodel.UserEvent
 import com.anonymous.searchquery.presentaiton.util.ErrorType
 import com.anonymous.searchquery.presentaiton.util.ResourceManager
 import com.anonymous.searchquery.presentaiton.util.UIState
 import com.anonymous.searchquery.utils.*
 import com.anonymous.searchquery.utils.getFakeEmptySearchResult
+import com.anonymous.searchquery.utils.getFakeErrorSearchResult
 import com.anonymous.searchquery.utils.getFakeSearchDomain
 import com.anonymous.searchquery.utils.getFakeSearchUI
 import io.mockk.coEvery

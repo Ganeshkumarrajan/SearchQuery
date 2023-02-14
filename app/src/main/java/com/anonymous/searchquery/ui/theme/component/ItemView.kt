@@ -20,4 +20,3 @@ fun ItemView(objectIDs: SearchUI) {
         modifier = Modifier.fillMaxWidth().padding(10.dp)
     )
 }
-

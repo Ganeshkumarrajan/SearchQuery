@@ -2,9 +2,11 @@ package com.anonymous.searchquery.presentaiton.search.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.anonymous.searchquery.data.base.NetworkResult
+import com.anonymous.searchquery.domain.search.model.SearchDomain
 import com.anonymous.searchquery.domain.search.usecase.DoSearchUseCase
-import com.anonymous.searchquery.domain.search.usecase.SearchDomain
+import com.anonymous.searchquery.domain.utils.NetworkResult
+import com.anonymous.searchquery.presentaiton.search.events.UserEvent
+import com.anonymous.searchquery.presentaiton.search.mapper.DomainToUIMapper
 import com.anonymous.searchquery.presentaiton.search.model.SearchUI
 import com.anonymous.searchquery.presentaiton.util.ErrorType
 import com.anonymous.searchquery.presentaiton.util.ResourceManager
@@ -24,7 +26,7 @@ class SearchViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _searchResult = MutableStateFlow<UIState<List<SearchUI>>>(UIState.Nothing())
-    val searchResult :StateFlow<UIState<List<SearchUI>>> = _searchResult
+    val searchResult: StateFlow<UIState<List<SearchUI>>> = _searchResult
 
     fun onEvent(events: UserEvent) {
         when (events) {
@@ -60,15 +62,4 @@ class SearchViewModel @Inject constructor(
             }
         }
     }
-}
-
-interface DomainToUIMapper<I, O> {
-    fun map(input: I): O
-}
-
-class SearchResultMapperDomainToUI() : DomainToUIMapper<List<SearchDomain?>, List<SearchUI>> {
-    override fun map(input: List<SearchDomain?>): List<SearchUI> =
-        input.map {
-            SearchUI(it?.objectId ?: 0)
-        }
 }
