@@ -1,7 +1,8 @@
 package com.anonymous.searchquery.domain.search.usecase
 
-import com.anonymous.searchquery.data.base.NetworkResult
+import com.anonymous.searchquery.domain.search.model.SearchDomain
 import com.anonymous.searchquery.domain.search.repository.MetMuseumRepository
+import com.anonymous.searchquery.domain.utils.NetworkResult
 import kotlinx.coroutines.flow.Flow
 
 interface DoSearchUseCase {
@@ -11,5 +12,3 @@ class DoSearchUseCaseImpl(private val metMuseumRepository: MetMuseumRepository) 
     override suspend fun doSearch(query: String): Flow<NetworkResult<List<SearchDomain?>>> =
         metMuseumRepository.doSearch(query)
 }
-
-data class SearchDomain(val objectId: Long)

@@ -1,9 +1,9 @@
 package com.anonymous.searchquery.domain
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.anonymous.searchquery.data.base.NetworkResult
 import com.anonymous.searchquery.domain.search.repository.MetMuseumRepository
 import com.anonymous.searchquery.domain.search.usecase.DoSearchUseCaseImpl
+import com.anonymous.searchquery.domain.utils.NetworkResult
 import com.anonymous.searchquery.utils.MainCoroutineRule
 import com.anonymous.searchquery.utils.getFakeEmptySearchResult
 import com.anonymous.searchquery.utils.getFakeErrorSearchResult

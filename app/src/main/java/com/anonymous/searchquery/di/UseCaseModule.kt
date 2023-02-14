@@ -1,5 +1,7 @@
 package com.anonymous.searchquery.di
 
+import com.anonymous.searchquery.domain.details.usecase.GetObjectDetailsUseCase
+import com.anonymous.searchquery.domain.details.usecase.GetObjectDetailsUseCaseImpl
 import com.anonymous.searchquery.domain.search.repository.MetMuseumRepository
 import com.anonymous.searchquery.domain.search.usecase.DoSearchUseCase
 import com.anonymous.searchquery.domain.search.usecase.DoSearchUseCaseImpl
@@ -14,4 +16,8 @@ class UseCaseModule {
     @Provides
     fun provideSearchUseCase(metMuseumRepository: MetMuseumRepository): DoSearchUseCase =
         DoSearchUseCaseImpl(metMuseumRepository)
+
+    @Provides
+    fun provideGetObjectDetailsUseCase(metMuseumRepository: MetMuseumRepository): GetObjectDetailsUseCase =
+        GetObjectDetailsUseCaseImpl(metMuseumRepository)
 }

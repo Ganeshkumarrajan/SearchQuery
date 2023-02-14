@@ -5,6 +5,7 @@ import com.anonymous.searchquery.R
 
 interface ResourceManager {
     fun getErrorMessage(type: ErrorType): String
+    fun getString(id: Int): String
 }
 
 enum class ErrorType {
@@ -20,4 +21,7 @@ class ResourceManagerImpl(private val context: Context) : ResourceManager {
             else -> context.getString(R.string.no_result_found)
         }
     }
+
+    override fun getString(id: Int): String =
+        context.getString(id)
 }

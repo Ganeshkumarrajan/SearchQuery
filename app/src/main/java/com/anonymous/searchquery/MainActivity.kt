@@ -12,9 +12,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.anonymous.searchquery.presentaiton.search.screen.SearchScreen
+import androidx.navigation.compose.rememberNavController
+import com.anonymous.searchquery.presentaiton.navigation.NavigationApp
 import com.anonymous.searchquery.presentaiton.search.viewmodel.SearchViewModel
-import com.anonymous.searchquery.presentaiton.search.viewmodel.UserEvent
 import com.anonymous.searchquery.ui.theme.SearchQueryTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,12 +27,12 @@ class MainActivity : ComponentActivity() {
         R.string.app_name
         setContent {
             SearchQueryTheme {
-                // A surface container using the 'background' color from the theme
+                val navigation = rememberNavController()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    SearchScreen()
+                    NavigationApp(navigation)
                 }
             }
         }

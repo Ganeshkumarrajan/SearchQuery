@@ -2,4 +2,8 @@
     <string name="app_name">SearchQuery</string>
     <string name="no_result_found">No Result found</string>
     <string name="try_again">Please try again</string>
+    <string name="object_name">Object: </string>
+    <string name="title">Title: </string>
+    <string name="department">Department: </string>
+    <string name="search_object">Search Object</string>
 </resources>

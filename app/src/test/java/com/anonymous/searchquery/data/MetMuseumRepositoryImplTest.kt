@@ -1,17 +1,19 @@
 package com.anonymous.searchquery.data
 
 import com.anonymous.searchquery.data.api.MetMuseumService
-import com.anonymous.searchquery.data.base.NetworkResult
-import com.anonymous.searchquery.data.search.mapper.NetworkToDomainMapper
+import com.anonymous.searchquery.data.details.model.ObjectDetailsNetwork
 import com.anonymous.searchquery.data.search.model.SearchNetwork
 import com.anonymous.searchquery.data.search.repository.MetMuseumRepositoryImpl
-import com.anonymous.searchquery.domain.search.usecase.SearchDomain
+import com.anonymous.searchquery.data.utils.NetworkToDomainMapper
+import com.anonymous.searchquery.domain.details.model.ObjectDetailsDomain
+import com.anonymous.searchquery.domain.search.model.SearchDomain
+import com.anonymous.searchquery.domain.utils.NetworkResult
 import com.anonymous.searchquery.utils.fakeEmptySearchApiResponse
+import com.anonymous.searchquery.utils.fakeSearchApiResponse
 import com.anonymous.searchquery.utils.getFakeEmptySearchDomain
 import com.anonymous.searchquery.utils.getFakeEmptySearchNetwork
 import com.anonymous.searchquery.utils.getFakeSearchDomain
 import com.anonymous.searchquery.utils.getFakeSearchNetwork
-import com.anonymous.searchquery.utils.fakeSearchApiResponse
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -28,10 +30,11 @@ class MetMuseumRepositoryImplTest {
     private lateinit var repository: MetMuseumRepositoryImpl
     private val service: MetMuseumService = mockk()
     private val mapper: NetworkToDomainMapper<SearchNetwork, List<SearchDomain?>> = mockk()
+    private val detailsMapper: NetworkToDomainMapper<ObjectDetailsNetwork, ObjectDetailsDomain> = mockk()
 
     @Before
     fun setup() {
-        repository = MetMuseumRepositoryImpl(service, mapper, Dispatchers.Default)
+        repository = MetMuseumRepositoryImpl(service, mapper, Dispatchers.Default, detailsMapper)
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
